@@ -15,7 +15,7 @@ import java.util.concurrent.Executors
 class FlutterDownloaderInitializer : ContentProvider() {
     companion object {
         private const val TAG = "DownloaderInitializer"
-        private const val DEFAULT_MAX_CONCURRENT_TASKS = 3
+        private const val DEFAULT_MAX_CONCURRENT_TASKS = 1
     }
 
     override fun onCreate(): Boolean {
