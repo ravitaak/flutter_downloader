@@ -1,5 +1,7 @@
+group = "vn.hunghd.flutterdownloader"
+version = "1.0-SNAPSHOT"
+
 buildscript {
-    ext.kotlin_version = "1.9.0"
     repositories {
         google()
         mavenCentral()
@@ -7,51 +9,48 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:7.4.2"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jlleitschuh.gradle:ktlint-gradle:11.5.0"
+        classpath "com.android.tools.build:gradle:8.8.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:12.1.2"
     }
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
 
 apply plugin: "com.android.library"
-apply plugin: "kotlin-android"
+apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "org.jlleitschuh.gradle.ktlint"
 
-group "vn.hunghd.flutterdownloader"
-version "1.0-SNAPSHOT"
-
-rootProject.allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 android {
-    namespace "vn.hunghd.flutterdownloader"
-    compileSdk 34
+    namespace = "vn.hunghd.flutterdownloader"
+    compileSdk = 35
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
+        // allWarningsAsErrors = true // TODO(bartekpacia): Re-enable
     }
 
     sourceSets {
         main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
     }
 
     defaultConfig {
-        minSdk 19
-        targetSdk 33
+        minSdk = 21
+        targetSdk = 35
     }
 }
 
 dependencies {
-    implementation "androidx.work:work-runtime:2.7.1"
-    implementation "androidx.annotation:annotation:1.5.0"
-    implementation "androidx.core:core-ktx:1.9.0"
+    compileOnly "androidx.annotation:annotation:1.6.0"
+    implementation "androidx.core:core-ktx:1.13.1"
+    implementation "androidx.work:work-runtime:2.9.0"
 }

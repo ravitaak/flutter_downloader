@@ -1,3 +1,19 @@
+## 1.12.0
+
+- Dependencies update (#990)
+  - **Bump minimum Flutter to 3.27**
+  - Update leancode_lint and fix all new warnings
+  - Bump Gradle to 8.8
+  - Bump Kotlin to 2.1.0
+
+## 1.11.8
+
+- Allow nullable Content-Yype (#966)
+- Dependencies update (#952)
+  - Gradle buildscripts on Android
+  - Bump minimum Android SDK to 21
+  - Bump minimum Flutter to 3.19
+
 ## 1.11.7
 
 - Update dependencies (#946)
